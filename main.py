@@ -11,13 +11,17 @@ model.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+origins = [
+    "https://iot-front-three.vercel.app",  #  Vercel deploy 
+    "http://localhost:5173",  # ในเครื่อง
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://iot-front-three.vercel.app"],
-    # allow_origins=["https://http://localhost:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],  # อนุญาตทุก HTTP methods
-    allow_headers=["*"],  # อนุญาตทุก headers
+    allow_headers=["*"],  # อนุญาตทุก HTTP headers
 )
 
 @app.get('/')
