@@ -13,7 +13,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["https://iot-front-three.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],  # อนุญาตทุก HTTP methods
     allow_headers=["*"],  # อนุญาตทุก headers
